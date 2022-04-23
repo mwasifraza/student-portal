@@ -1,0 +1,273 @@
+/* @import url('https://fonts.googleapis.com/css2?family=Raleway:ital,wght@0,300;0,400;0,500;1,300;1,400;1,500&display=swap'); */
+
+body{
+    /* font-family: 'Raleway', sans-serif; */
+    background: #1e2225 !important;
+    color: #fff !important;
+    min-height: 100vh;
+}
+hr{
+    border-bottom: 1px solid rgba(204,204,204,0.3) !important;
+}
+.dropdown-divider{
+    border-top: 1px solid rgba(204,204,204,0.3) !important;
+}
+.us-none{ user-select: none; }
+
+.ud-none{ -webkit-user-drag: none; }
+
+.center{ text-align: center; }
+
+.mt20{ margin-top: 20px; }
+
+.mb20{ margin-bottom: 20px; }
+
+.ml20{ margin-left: 20px; }
+
+.mr20{ margin-right: 20px; }
+
+.bd-right{
+    border-right: 2px solid #aaa;
+}
+form.mg-zero input,
+form.mg-zero select{
+    margin: 0;
+}
+form input,
+form select{
+    margin: 15px 0;
+    border: 0 !important;
+}
+form select:focus,
+form input:focus{
+    box-shadow: none !important;
+}
+.dropdown-item{
+    padding: 4px 18px;
+}
+
+
+/*****************************
+========== HomePage ==========
+******************************/
+#home .box{
+    margin: 10rem 0 0;
+    padding: 50px;
+}
+#home .box p{
+    font-style: italic;
+    font-size: 18px;
+}
+#home .box .btn{
+    border-radius: 0;
+    background-color: transparent;
+    border: 2px solid white;
+    font-size: 22px;
+}
+#home .box .btn:hover{
+    background-color: white;
+    color: #212121;
+}
+@media(max-width: 991px){
+    #home .box{
+        margin-top: 5rem;
+        padding: 30px;
+    }
+}
+@media(max-width: 500px){
+    #home .box{
+        margin-top: 3rem;
+        padding: 20px;
+    }
+    #home .box h1{
+        font-size: 32px;
+    }
+    #home .box h3{
+        font-size: 24px;
+    }
+}
+
+
+/*****************************
+========= Admin Page =========
+******************************/
+#admin{
+    margin: 80px 0 0;
+}
+.admin-login{
+    margin: 40px 0;
+    padding: 40px 60px;
+}
+.admin-login form input{
+    border: 2px solid #fff !important;
+    border-radius: 0;
+    padding: 10px;
+    font-size: 18px;
+    background-color: transparent !important;
+    color: #fff !important;
+}
+.admin-login form input::placeholder{
+    color: white;
+}
+.admin-login form input,
+.admin-login form button{ 
+    width: 300px;
+}
+
+
+/****************************
+======= Register Page =======
+*****************************/
+#registration{
+    padding: 0;
+}
+#registration .box{
+    padding: 10px 20px;
+}
+#registration .box:first-child{
+    border-right: 1px solid rgba(255,255,255,0.3);
+}
+#registration .box .mp-01{
+    margin-top: 5rem;
+    padding: 50px 20px;
+}
+#registration .box .mp-01 p{
+    font-size: 20px;
+}
+@media(max-width: 1200px){
+    #registration .box .mp-01{
+        margin-top: 3rem;
+    }
+}
+@media(max-width: 991px){
+    #registration .box .mp-01{
+        margin-top: 1.5rem;
+        padding: 20px 10px;
+    }
+}
+@media(max-width: 767px){
+    #registration .box .mp-01{
+        margin-top: 0;
+        padding: 0;
+    }
+    #registration .box.mt-5{
+        margin-top: 1rem !important;
+    }
+    #registration .box:first-child{
+        border-right: 0;
+        border-bottom: 1px solid rgba(255,255,255,0.3);
+    }
+}
+@media(max-width: 575px){
+    #registration .box{
+        margin: 0 20px;
+    }
+}
+
+
+/*****************************
+========= Login Page =========
+******************************/
+#user-login{
+    padding: 50px 0;
+}
+#user-login .login-form{
+    padding: 40px;
+    margin: 50px 0 0;
+    border-radius: 5px;
+    box-shadow: 0 0 10px 5px rgba(0,0,0,0.2);
+}
+@media(max-width: 575px){
+    #user-login{
+        padding: 50px 35px;
+    }
+}
+@media(max-width: 425px){
+    #user-login .login-form{
+        padding: 20px;
+    }
+}
+
+
+/*****************************
+======= User Dashboard =======
+******************************/
+#dashboard .box{
+    padding: 40px 20px;
+}
+#dashboard .card{
+    background-color: transparent;
+    border: 1px solid rgba(240,240,240,.3);
+}
+.dropdown-menu{
+    background-color: rgba(45,45,45,0.9) !important;
+}
+.dropdown-menu .dropdown-item{
+    color: #ccc;
+}
+@media(max-width: 991px){
+    #dashboard .box > h2{
+        font-size: 28px;
+    }
+}
+@media(max-width: 767px){
+    #dashboard .box{
+        padding: 20px;
+    }
+    #dashboard .box:first-child{
+        border-bottom: 1px solid rgba(204,204,204,0.2);
+    }
+}
+@media(max-width: 575px){
+    #dashboard .box{
+        margin: 0 20px;
+    }
+}
+
+
+/*****************************
+======= User Settings =======
+******************************/
+#user-setting .card{
+    background-color: transparent;
+    border: 1px solid rgba(240,240,240,.3);
+}
+#user-setting .card.card-left nav a,
+#user-setting .card ul li a{
+    color: #aaa;
+}
+#user-setting .card.card-left nav a.active{
+    color: #fff;
+}
+#user-setting .card ul li a.active{
+    color: #000;
+}
+#user-setting .card form .text-muted{
+    color: rgba(240,240,240,0.6) !important;
+}
+@media(max-width: 991px){
+    #user-setting .card-left .card-body{
+        padding: 10px;
+    }
+    #user-setting .card-left .card-body nav .nav-link{
+        padding: 8px 5px;
+    }
+}
+
+
+/*****************************
+=========== Footer ===========
+******************************/
+footer{
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    width: 100%;
+    background-color: #343a40;
+    padding: 25px 0;
+    text-align: center;
+    box-shadow: 0 -3px 5px rgba(0,0,0,0.1);
+}
+footer p{
+    margin: 0;
+}

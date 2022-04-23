@@ -1,0 +1,196 @@
+{% extends "base.html" %}
+
+{% block title %}
+    Python Project | Settings
+{% endblock %}
+
+{% block content %}
+<section id="user-setting">
+    <div class="container mt-5 mb-5">
+        <div class="row">
+            <div class="col-11 mx-auto">
+
+                <nav aria-label="breadcrumb" class="mb-4">
+                    <ol class="breadcrumb">
+                        <li class="breadcrumb-item"><a href="#">Home</a></li>
+                        <li class="breadcrumb-item"><a href="#">Dashboard</a></li>
+                        <li class="breadcrumb-item active" aria-current="page">Settings</li>
+                    </ol>
+                </nav>
+
+                <div class="row">
+                    <div class="col-xl-3 col-lg-4 col-md-4 d-md-block">
+                        <div class="card card-left d-md-block d-none">
+                            <div class="card-body">
+                                <nav class="nav">
+                                    <a data-toggle="tab" class="nav-link active" href="#profile">
+                                        <i class="fas fa-user mr-1"></i> Profile
+                                    </a>
+                                    <a data-toggle="tab" class="nav-link" href="#account">
+                                        <i class="fas fa-user-cog mr-1"></i> Account Settings
+                                    </a>
+                                    <a data-toggle="tab" class="nav-link" href="#security">
+                                        <i class="fas fa-user-shield mr-1"></i> Security
+                                    </a>
+                                    <a data-toggle="tab" class="nav-link" href="#notification">
+                                        <i class="fas fa-bell mr-1"></i> Notification
+                                    </a>
+                                </nav>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="col-xl-9 col-lg-8 col-md-8">
+                        <div class="card">
+                            <div class="card-header boder-bottom mb-3 d-md-none">
+                                <ul class="nav nav-tabs card-header-tabs nav-fill">
+                                    <li class="nav-item">
+                                        <a data-toggle="tab" class="nav-link active" href="#profile">
+                                            <i class="fas fa-user mr-1"></i>
+                                        </a>
+                                    </li>
+                                    <li class="nav-item">
+                                        <a data-toggle="tab" class="nav-link" href="#account">
+                                            <i class="fas fa-user-cog mr-1"></i>
+                                        </a>
+                                    </li>
+                                    <li class="nav-item">
+                                        <a data-toggle="tab" class="nav-link" href="#security">
+                                            <i class="fas fa-user-shield mr-1"></i>
+                                        </a>
+                                    </li>
+                                    <li class="nav-item">
+                                        <a data-toggle="tab" class="nav-link" href="#notification">
+                                            <i class="fas fa-bell mr-1"></i>
+                                        </a>
+                                    </li>
+                                </ul>
+                            </div>
+
+                            <div class="card-body tab-content border-0">
+                                <!-- profile -->
+                                <div class="tab-pane active" id="profile">
+                                    <h6>YOUR PROFILE INFORMATION</h6>
+                                    <hr>
+                                    <form action="{{ url_for('user_settings') }}" method="POST" class="mg-zero">
+                                        {{ update_profile.hidden_tag() }}
+                                        <div class="form-row mb-3">
+                                            <div class="form-group col-md-6">
+                                                {{ update_profile.fname.label() }}
+                                                {{ update_profile.fname(class='form-control', id='fname', placeholder='First Name', value=user_to_update.fname) }}
+                                            </div>
+                                            <div class="form-group col-md-6">
+                                                {{ update_profile.lname.label() }}
+                                                {{ update_profile.lname(class='form-control', id='lname', placeholder='Last Name', value=user_to_update.lname) }}
+                                            </div>
+                                        </div>
+                                        <div class="form-row mb-3">
+                                            <div class="form-group col-md-6">
+                                                <label for="">Your Hometown</label>
+                                                <input type="text" class="form-control" id="" placeholder="Hometown">
+                                            </div>
+                                            <div class="form-group col-md-6">
+                                                <label for="">City where you live</label>
+                                                <input type="text" class="form-control" id="" placeholder="City">
+                                                <small class="form-text text-muted">City where you currently live in.</small>
+                                            </div>
+                                        </div>
+                                        <div class="form-row mb-3">
+                                            <div class="form-group col-lg-4">
+                                                {{ update_profile.gender.label() }}
+                                                {{ update_profile.gender(class='form-control') }}  
+                                            </div>
+                                            <div class="form-group col-lg-8">
+                                                <label for="">Date of Birth</label>
+                                                <div id="birthday" class="form-row">
+                                                    <div class="col-md-4">
+                                                        <select name="month" id="month" onchange="selectDate(this.value)" class="form-control mb-1">
+                                                            <option value="">Month</option>
+                                                            {% for month in months %}
+                                                            <option value="{{ month }}">{{ month }}</option>
+                                                            {% endfor %}
+                                                        </select>
+                                                    </div>
+                                                    <div class="col-md-4">
+                                                        <select name="date" id="date" class="form-control mb-1">
+                                                            <option value="">Date</option>
+                                                        </select>
+                                                    </div>
+                                                    <div class="col-md-4">
+                                                        <select name="year" id="year" class="form-control mb-1">
+                                                            <option value="">Year</option>
+                                                            {% for i in range(1990, 2004) %}
+                                                            <option value="{{ i }}">{{ i }}</option>
+                                                            {% endfor %}
+                                                        </select>
+                                                    </div>
+                                                </div>
+                                                <small class="form-text text-muted">can be changed limited no. of times</small>
+                                            </div>
+                                        </div>
+                                        {{ update_profile.submit(class='btn btn-outline btn-info btn-block') }}
+                                    </form>
+                                </div>
+                                <!-- account -->
+                                <div class="tab-pane" id="account">
+                                    <h6>ACCOUNT SETTINGS</h6>
+                                    <hr>
+                                    <form action="{{ url_for('user_settings') }}" method="POST" class="mg-zero">
+                                        {{ update_account.hidden_tag() }}
+                                        <div class="form-group">
+                                            {{ update_account.username.label() }}
+                                            <div class="input-group mb-2">
+                                                <div class="input-group-prepend">
+                                                  <div class="input-group-text"><i class="fas fa-at"></i></div>
+                                                </div>
+                                                {{ update_account.username(class='form-control', id='username', placeholder='Username', value=user_to_update.username) }}
+                                            </div>
+                                            <small class="form-text text-muted">after changing your username, your old one will become avaliable for anyone to claim</small>
+                                        </div>
+                                        <div class="form-group">
+                                            {{ update_account.email.label() }}
+                                            <div class="input-group mb-2">
+                                                <div class="input-group-prepend">
+                                                  <div class="input-group-text"><i class="fas fa-envelope"></i></div>
+                                                </div>
+                                                {{ update_account.email(type='email', class='form-control', id='email', placeholder='Valid Email Address', value=user_to_update.email) }}                                              
+                                            </div>
+                                            <small class="form-text text-muted">please enter only valid email address, otherwise you will not be able to recover your account</small>
+                                        </div>
+                                        {{ update_account.submit(class='btn btn-outline btn-info btn-block') }}
+                                    </form>
+                                </div>
+                                <!-- security -->
+                                <div class="tab-pane" id="security">
+                                    <h6>SECURITY</h6>
+                                    <hr>
+                                    <form action="{{ url_for('user_settings') }}" method="POST" class="mg-zero">
+                                        {{ update_password.hidden_tag() }}
+                                        <div class="form-group">
+                                            {{ update_password.curr_pass.label() }}
+                                            {{ update_password.curr_pass(class='form-control', placeholder='Current Password') }}
+                                        </div>
+                                        <div class="form-group">
+                                            {{ update_password.new_pass.label() }}
+                                            {{ update_password.new_pass(class='form-control', placeholder='New Password') }}               
+                                        </div>
+                                        <div class="form-group">
+                                            {{ update_password.con_new_pass.label() }}
+                                            {{ update_password.con_new_pass(class='form-control', placeholder='Confirm New Password') }}
+                                        </div>
+                                        {{ update_password.submit(class='btn btn-outline btn-info btn-block') }}
+                                    </form>
+                                </div>
+                                <!-- notification -->
+                                <div class="tab-pane" id="notification">
+                                    <h1 class="text-muted">Notification Settings</h1>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+{% endblock %}

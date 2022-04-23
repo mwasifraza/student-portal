@@ -1,0 +1,38 @@
+{% extends "base.html" %}
+
+{% block title %}
+    Python Project | Login
+{% endblock %}
+
+{% block content %}
+<section id="user-login">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-4 col-md-6 col-sm-8 mx-auto login-form">
+                <h2 class="center">Login</h2>
+                <form method="POST">
+                    {{ form.hidden_tag() }}
+                    {{ form.username(class='form-control', placeholder='Username', required='required') }}
+
+                    {{ form.password(class='form-control', placeholder='Password', required='required') }}
+
+                    <div class="center">
+                        <input type="checkbox" id="rememberMe" class="">
+                        <label for="rememberMe">&nbsp;Remember me</label>
+                    </div>
+                    
+                    {{ form.submit(class='btn btn-primary btn-block') }}
+                </form>
+                <div class="center">
+                    <a href="#" class="text-primary d-block">Forgot Passsword?</a>
+                    <div class="mt-2">
+                        <p>Don't have an account?
+                        <a href="{{ url_for('registerpage') }}">Register Here</a>
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+{% endblock %}

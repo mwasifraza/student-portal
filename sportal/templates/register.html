@@ -1,0 +1,63 @@
+{% extends 'base.html' %}
+
+{% block title %}
+    Python Project | User Registration
+{% endblock %}
+
+{% block content %}
+    <section id="registration">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-6 col-xl-8 box mt-5">
+                    <div class="mp-01 center">
+                        <h2 class="mb-4">Easy to Use!</h2>
+                        <p>Hello User! If you are a student of <strong>Institute of Space Science & Technology ISST</strong>, you are welcome here! the student portal for ISST has been launched. It will allow students to do thier work more conviniently. All you have to do is, create an account and provide your information. Our system will search you using seat no. in the database, and after confirmation, your account will be created! Enjoy!</p>
+                    </div>
+                </div>
+                <div class="col-md-6 col-xl-4 box mt-5">
+                    <h2 class="mb20">Register yourself here.</h2>
+                    <form method="POST" class="mg-zero">
+                        {{ form.hidden_tag() }}
+                        <div class="form-row">
+                            <div class="form-group col-md-6">
+                                {{ form.fname.label() }}
+                                {{ form.fname(class='form-control', placeholder='First Name') }}
+                            </div>
+                            <div class="form-group col-md-6">
+                                {{ form.lname.label() }}
+                                {{ form.lname(class='form-control', placeholder='Last Name') }}
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            {{ form.username.label() }}
+                            <div class="input-group mb-2">
+                                <div class="input-group-prepend">
+                                  <div class="input-group-text"><i class="fas fa-at"></i></div>
+                                </div>
+                                {{ form.username(class='form-control', placeholder='Username') }}
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            {{ form.email.label() }}
+                            {{ form.email(type='email', class='form-control', placeholder='Valid Email Address') }}
+                        </div>
+                        <div class="form-group">
+                            {{ form.password.label() }}
+                            {{ form.password(class='form-control', placeholder='Password') }}                           
+                        </div>
+                        <div class="form-group">
+                            {{ form.gender.label() }}
+                            {{ form.gender(class='form-control') }}                         
+                        </div>
+                        {{ form.submit(class='btn btn-outline btn-primary btn-block') }}
+                    </form>
+                    <div style="margin-top: 15px;">
+                        <p>Already have an account?
+                        <a href="{{ url_for('loginpage') }}">Login Here</a>
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+{% endblock %}

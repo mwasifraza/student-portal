@@ -1,0 +1,44 @@
+{% extends "base.html" %}
+
+{% block title %}
+    Python Project | Users Data
+{% endblock %}
+
+{% block content %}
+<section>
+    <div class="container mt-4">
+        <h1>Users Data</h1>
+        <div class="table-responsive">
+            <table class="table table-hover table-dark mt-3">
+                <thead>
+                    <tr>
+                        <th scope="col">Id</th>
+                        <th scope="col">Name</th>
+                        <!-- <th scope="col">Last Name</th> -->
+                        <th scope="col">Username</th>
+                        <th scope="col">Email</th>
+                        <th scope="col">Gender</th>
+                        <th scope="col">Options</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {% for user in users %}
+                    <tr>
+                        <td>{{ user.id }}</td>
+                        <td>{{ user.fname }} {{ user.lname }}</td>
+                        <!-- <td>{{ user.lname }}</td> -->
+                        <td>{{ user.username }}</td>
+                        <td>{{ user.email }}</td>
+                        <td>{{ user.gender }}</td>
+                        <td>
+                            <a href="#" class="btn btn-outline btn-warning btn-sm">Update</a>
+                            <a href="#" class="btn btn-outline btn-danger btn-sm">Delete</a>
+                        </td>
+                    </tr>
+                    {% endfor %}
+                </tbody>
+            </table>
+        </div>
+    </div>
+</section>
+{% endblock %}
