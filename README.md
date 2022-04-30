@@ -5,4 +5,5 @@ On dashboard you can enroll in any avaliable course there or unenroll if you are
 Once you enroll, it will show you some pdf books to download related to your course.
 There is also a page "/progress" to show student's academic record but all the data is static on that page atm.
 At "/settings", you can change your name, email, username, password etc.
-enjoy :)
+
+open cmd, path/to/the/folder, run 'run.py' file using command python run.py
